@@ -1,0 +1,5 @@
+# related to IDE
+.idea/
+
+# java byte code
+out/
