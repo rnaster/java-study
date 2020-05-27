@@ -8,6 +8,7 @@ class PhoneInfo {
     private String name;
     private String phoneNumber;
     private String birthday;
+    static PhoneInfo[] collection = new PhoneInfo[100];
 
     PhoneInfo(String name, String phoneNumber, String birthday) {
         this.name = name;
@@ -17,6 +18,10 @@ class PhoneInfo {
 
     PhoneInfo(String name, String phoneNumber) {
         this(name, phoneNumber, null);
+    }
+
+    boolean isEqualName(String name) {
+        return this.name.equals(name);
     }
 
     void setName(String name) {
