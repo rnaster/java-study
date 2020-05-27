@@ -5,35 +5,17 @@
 package stepbystep;
 
 class PhoneInfo {
-    private String name;
-    private String phoneNumber;
-    private String birthday;
+    private final String name;
+    private final String phoneNumber;
     static PhoneInfo[] collection = new PhoneInfo[100];
 
-    PhoneInfo(String name, String phoneNumber, String birthday) {
+    PhoneInfo(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.birthday = birthday;
-    }
-
-    PhoneInfo(String name, String phoneNumber) {
-        this(name, phoneNumber, null);
     }
 
     boolean isEqualName(String name) {
         return this.name.equals(name);
-    }
-
-    void setName(String name) {
-        this.name = name;
-    }
-
-    void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    void setBirthday(String birthday) {
-        this.birthday = birthday;
     }
 
     String getName() {
@@ -44,13 +26,9 @@ class PhoneInfo {
         return phoneNumber;
     }
 
-    String getBirthday() {
-        return birthday;
-    }
-
     void printInfo() {
-        System.out.printf("name: %s, phone number: %s, birthday: %s\n",
-                name, phoneNumber, birthday);
+        System.out.printf("name: %s, phone number: %s\n",
+                name, phoneNumber);
     }
 }
 
@@ -59,8 +37,7 @@ class PhoneInfoTest {
     public static void main(String[] args) {
         PhoneInfo phoneInfo = new PhoneInfo("lee", "010-123-2344");
         phoneInfo.printInfo();
-        PhoneInfo phoneInfo2 = new PhoneInfo("kim",
-                "010-999-4532", "99-12-01");
+        PhoneInfo phoneInfo2 = new PhoneInfo("kim", "010-999-4532");
         phoneInfo2.printInfo();
     }
 }

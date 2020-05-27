@@ -21,7 +21,7 @@ public class RunPhoneBook {
                 break;
             }
             switch (menu) {
-                case 1 -> manager.insert(sc);
+                case 1 -> manager.insertInfo(sc);
                 case 2 -> manager.searchInfo(sc);
                 case 3 -> manager.deleteInfo(sc);
                 default -> manager.printAllInfo();

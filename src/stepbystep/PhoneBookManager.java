@@ -13,17 +13,61 @@ class PhoneBookManager {
         this.collection = collection;
     }
 
-    void insert(Scanner sc) {
-        if (cur_ptr == 100) { return; }
-        String name = insertName(sc);
-        System.out.print("Phone Number: ");
-        String phoneNumber = sc.nextLine();
-        System.out.print("Birthday: ");
-        String birthday = sc.nextLine();
-        collection[cur_ptr] = new PhoneInfo(name, phoneNumber, birthday);
+    void insertInfo(Scanner sc) {
+        if (cur_ptr == 100) {
+            System.out.println("Storage exceed!");
+            return;
+        }
+
+        System.out.print("1. Common, 2. Univ, 3. Corp\nchoice: ");
+        int choice = sc.nextInt();
+        sc.nextLine();
+        PhoneInfo phoneInfo = insertCommonInfo(sc);
+        switch (choice) {
+            case 2 -> phoneInfo = insertUnivInfo(phoneInfo, sc);
+            case 3 -> phoneInfo = insertCorpInfo(phoneInfo, sc);
+        }
+        collection[cur_ptr] = phoneInfo;
         collection[cur_ptr].printInfo();
         System.out.println();
         cur_ptr++;
+    }
+
+    PhoneInfo insertCommonInfo(Scanner sc) {
+        return new PhoneInfo(insertName(sc), insertNumber(sc));
+    }
+
+    PhoneUnivInfo insertUnivInfo(PhoneInfo phoneInfo, Scanner sc) {
+        return new PhoneUnivInfo(phoneInfo, insertMajor(sc), insertGrade(sc));
+    }
+
+    PhoneCorpInfo insertCorpInfo(PhoneInfo phoneInfo, Scanner sc) {
+        return new PhoneCorpInfo(phoneInfo, insertCorp(sc));
+    }
+
+    String insertName(Scanner sc) {
+        System.out.print("Name: ");
+        return sc.nextLine();
+    }
+
+    String insertNumber(Scanner sc) {
+        System.out.print("Number: ");
+        return sc.nextLine();
+    }
+
+    String insertMajor(Scanner sc) {
+        System.out.print("Major: ");
+        return sc.nextLine();
+    }
+
+    int insertGrade(Scanner sc) {
+        System.out.print("Grade: ");
+        return sc.nextInt();
+    }
+
+    String insertCorp(Scanner sc) {
+        System.out.print("Corp: ");
+        return sc.nextLine();
     }
 
     void printAllInfo() {
@@ -40,11 +84,6 @@ class PhoneBookManager {
         }
         collection[idx].printInfo();
         System.out.println();
-    }
-
-    String insertName(Scanner sc) {
-        System.out.print("Name: ");
-        return sc.nextLine();
     }
 
     void searchInfo(Scanner sc) {
