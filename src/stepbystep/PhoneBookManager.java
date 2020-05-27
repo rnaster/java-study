@@ -3,6 +3,10 @@
  * */
 package stepbystep;
 
+import stepbystep.info.PhoneCorpInfo;
+import stepbystep.info.PhoneInfo;
+import stepbystep.info.PhoneUnivInfo;
+
 import java.util.Scanner;
 
 class PhoneBookManager {

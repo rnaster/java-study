@@ -1,7 +1,7 @@
 /* java study day3
  * step: 4
  * */
-package stepbystep;
+package stepbystep.info;
 
 public class PhoneUnivInfo extends PhoneInfo {
     private final String major;
@@ -19,7 +19,7 @@ public class PhoneUnivInfo extends PhoneInfo {
     }
 
     @Override
-    void printInfo() {
+    public void printInfo() {
         System.out.printf("name: %s, phone number: %s, major: %s, grade: %d\n",
                 getName(), getPhoneNumber(), major, grade);
     }

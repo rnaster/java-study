@@ -1,7 +1,7 @@
 /* java study day3
  * step: 4
  * */
-package stepbystep;
+package stepbystep.info;
 
 public class PhoneCorpInfo extends PhoneInfo {
     private final String corp;
@@ -16,7 +16,7 @@ public class PhoneCorpInfo extends PhoneInfo {
     }
 
     @Override
-    void printInfo() {
+    public void printInfo() {
         System.out.printf("name: %s, phone number: %s, corp: %s\n",
                 getName(), getPhoneNumber(), corp);
     }

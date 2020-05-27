@@ -2,19 +2,19 @@
  * step: 1
  * constructor overloading
  * */
-package stepbystep;
+package stepbystep.info;
 
-class PhoneInfo {
+public class PhoneInfo {
     private final String name;
     private final String phoneNumber;
-    static PhoneInfo[] collection = new PhoneInfo[100];
+    public static PhoneInfo[] collection = new PhoneInfo[100];
 
-    PhoneInfo(String name, String phoneNumber) {
+    public PhoneInfo(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
 
-    boolean isEqualName(String name) {
+    public boolean isEqualName(String name) {
         return this.name.equals(name);
     }
 
@@ -26,7 +26,7 @@ class PhoneInfo {
         return phoneNumber;
     }
 
-    void printInfo() {
+    public void printInfo() {
         System.out.printf("name: %s, phone number: %s\n",
                 name, phoneNumber);
     }

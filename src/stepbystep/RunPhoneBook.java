@@ -4,8 +4,10 @@
  * */
 package stepbystep;
 
+import stepbystep.info.PhoneInfo;
+
 import java.util.Scanner;
-import static stepbystep.PhoneInfo.collection;
+import static stepbystep.info.PhoneInfo.collection;
 
 public class RunPhoneBook {
     static Scanner sc = new Scanner(System.in);
