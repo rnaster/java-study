@@ -4,17 +4,16 @@
  * */
 package stepbystep;
 
-import stepbystep.info.PhoneInfo;
-
 import java.util.Scanner;
+
 import static stepbystep.info.PhoneInfo.collection;
 
 public class RunPhoneBook {
     static Scanner sc = new Scanner(System.in);
+    static PhoneBookManager manager = new PhoneBookManager(collection);
 
     static void run() {
         int menu;
-        PhoneBookManager manager = new PhoneBookManager(collection);
 
         while (true) {
             menu = SelectMenu.select(sc);
