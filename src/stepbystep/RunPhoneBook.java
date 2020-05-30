@@ -1,6 +1,6 @@
-/* java study day 2
- * step: 2
- * Take user input
+/* java study day 5
+ * step: 6
+ * exception
  * */
 package stepbystep;
 
@@ -16,16 +16,27 @@ public class RunPhoneBook {
         int menu;
 
         while (true) {
-            menu = SelectMenu.select(sc);
+            try {
+                menu = SelectMenu.select(sc);
+            } catch (PhoneBookException e) {
+                System.out.println(e.getMessage());
+                continue;
+            }
             if (menu == 0) {
                 System.out.println("Bye!");
                 break;
             }
             switch (menu) {
-                case 1 -> manager.insertInfo(sc);
+                case 1 -> {
+                    try {
+                        manager.insertInfo(sc);
+                    } catch (PhoneBookException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
                 case 2 -> manager.searchInfo(sc);
                 case 3 -> manager.deleteInfo(sc);
-                default -> manager.printAllInfo();
+                case 4 -> manager.printAllInfo();
             }
         }
     }

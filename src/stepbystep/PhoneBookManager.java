@@ -1,5 +1,6 @@
-/* java study day3
- * step: 3
+/* java study day 5
+ * step: 6
+ * exception
  * */
 package stepbystep;
 
@@ -17,7 +18,7 @@ class PhoneBookManager {
         this.collection = collection;
     }
 
-    void insertInfo(Scanner sc) {
+    void insertInfo(Scanner sc) throws PhoneBookException {
         if (cur_ptr == 100) {
             System.out.println("Storage exceed!");
             return;
@@ -26,6 +27,7 @@ class PhoneBookManager {
         System.out.print("1. Common, 2. Univ, 3. Corp\nchoice: ");
         int choice = sc.nextInt();
         sc.nextLine();
+        if (isWrongNumber(choice)) { throw new PhoneBookException(); }
         PhoneInfo phoneInfo = insertCommonInfo(sc);
         switch (choice) {
             case 2 -> phoneInfo = insertUnivInfo(phoneInfo, sc);
@@ -35,6 +37,10 @@ class PhoneBookManager {
         collection[cur_ptr].printInfo();
         System.out.println();
         cur_ptr++;
+    }
+
+    static boolean isWrongNumber(int choice) {
+        return 1 > choice || 3 < choice;
     }
 
     PhoneInfo insertCommonInfo(Scanner sc) {
