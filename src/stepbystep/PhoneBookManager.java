@@ -12,11 +12,7 @@ import java.util.Scanner;
 
 class PhoneBookManager {
     private int cur_ptr = 0;
-    PhoneInfo[] collection;
-
-    PhoneBookManager(PhoneInfo[] collection) {
-        this.collection = collection;
-    }
+    public static PhoneInfo[] collection = new PhoneInfo[100];
 
     void insertInfo(Scanner sc) throws PhoneBookException {
         if (cur_ptr == 100) {
@@ -44,7 +40,20 @@ class PhoneBookManager {
     }
 
     PhoneInfo insertCommonInfo(Scanner sc) {
-        return new PhoneInfo(insertName(sc), insertNumber(sc));
+        String name = insertName(sc);
+        while (containName(name)) {
+            System.out.printf("Duplicated name: %s, re-insert.\n", name);
+            name = insertName(sc);
+        }
+        return new PhoneInfo(name, insertNumber(sc));
+    }
+
+    boolean containName(String name) {
+        for (int i=0; i < cur_ptr; i++) {
+            if (collection[i].getName().equals(name))
+                return true;
+        }
+        return false;
     }
 
     PhoneUnivInfo insertUnivInfo(PhoneInfo phoneInfo, Scanner sc) {

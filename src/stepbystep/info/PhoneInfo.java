@@ -7,7 +7,6 @@ package stepbystep.info;
 public class PhoneInfo {
     private final String name;
     private final String phoneNumber;
-    public static PhoneInfo[] collection = new PhoneInfo[100];
 
     public PhoneInfo(String name, String phoneNumber) {
         this.name = name;
@@ -18,7 +17,7 @@ public class PhoneInfo {
         return this.name.equals(name);
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
